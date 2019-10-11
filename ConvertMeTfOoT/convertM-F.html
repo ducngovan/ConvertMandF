@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert FEET - METERS</title>
+</head>
+<body>
+<div class="content">
+<div><h1>Convert FEET - METERS</h1></div>
+</div>
+<div>
+    nhap gia tri: <input type="text" id="input" />
+    <select id="left">
+        <option value="feet">FEET</option>
+        <option value="meters">METERS</option>
+    </select>
+    <select id="right">
+        <option value="meters">METERS</option>
+        <option value="feet">FEET</option>
+    </select>
+    <button type="button" onclick="submit()">SUBMIT</button>
+</div>
+<script>
+    function submit() {
+        let input = parseInt(document.getElementById('input').value);
+        let review1 = document.getElementById('left').value;
+        let review2 = document.getElementById('right').value;
+        let result = new Convert();
+        if(review1=='feet' && review2=='meters'){
+            let done1 = result.getconvertFM(input);
+            alert(done1);
+
+        }else if (review1=='meters' && review2=='feet'){
+            let done2 = result.getconvertMF(input);
+            alert(done2);
+        }else{
+            alert("hay chuyen doi lai!");
+        }
+    }
+    function Convert() {
+        this.getconvertMF = function (feet) {
+            let result = feet *  3.279;
+            return result;
+        };
+        this.getconvertFM = function (meet) {
+            let result = meet * 0.305;
+            return result;
+        };
+    }
+</script>
+</body>
+</html>
